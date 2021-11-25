@@ -12,14 +12,14 @@ using MySql.Data.MySqlClient;
 
 namespace OperationPlanner
 {
-    public partial class Form1 : Form
+    public partial class FormPatientInfo : Form
     {
         public void Log(string s)
         {
             richTextBox_logger.Text += DateTime.Now.ToString() + " " + s + "\n";
         }
 
-        public Form1()
+        public FormPatientInfo()
         {
             InitializeComponent();
         }
@@ -68,6 +68,12 @@ namespace OperationPlanner
         private void label_logger_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            FormAddPatient form = new FormAddPatient();
+            form.ShowDialog();
         }
     }
 }
