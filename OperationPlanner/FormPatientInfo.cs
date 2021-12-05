@@ -70,10 +70,20 @@ namespace OperationPlanner
 
         }
 
+        public void Display()
+        {
+            DbPatient.DisplayAndSearch("SELECT ID, Name, Age, Gender, BMI FROM patient_table", dataGridView1);
+        }
+
         private void btnNew_Click(object sender, EventArgs e)
         {
-            FormAddPatient form = new FormAddPatient();
+            FormAddPatient form = new FormAddPatient(this);
             form.ShowDialog();
+        }
+
+        private void FormPatientInfo_Shown(object sender, EventArgs e)
+        {
+            Display();
         }
     }
 }

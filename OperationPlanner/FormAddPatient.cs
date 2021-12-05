@@ -12,19 +12,93 @@ namespace OperationPlanner
 {
     public partial class FormAddPatient : Form
     {
-        public FormAddPatient()
+        private readonly FormPatientInfo _parent;
+
+        public FormAddPatient(FormPatientInfo parent)
         {
             InitializeComponent();
+            _parent = parent;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
+        public void Clear()
+        {
+            txtName.Text = txtAge.Text = txtGender.Text = txtBMI.Text = string.Empty;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
+            if (txtName.Text.Trim().Length < 3)
+            {
+                MessageBox.Show("Patient name is Empty ( > 3).");
+                return;
+            }
 
+            int age = -1;
+            if (int.TryParse(txtAge.Text, out age))
+            {   // parsing successfull
+                if (age < 0 || age > 200)
+                {
+                    MessageBox.Show("Patient age is out of range (0-200).");
+                    return;
+                }
+                else
+                {   // age is OK
+                }
+            }
+            else
+            {
+                MessageBox.Show("Patient age is invalid (0-200).");
+            }
+
+            int gender = -1;
+            if(int.TryParse(txtGender.Text, out gender))
+            {   // parsing successfull
+                if(gender == 1)
+                {   // male
+
+                }
+                else if (gender == 0)
+                {   // female
+
+                }
+                else
+                {   // error
+                    MessageBox.Show("Numbers accepted are: '0' for female or '1' for male).");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Patient gender is invalid ('0' for female or '1' for male).");
+            }
+
+            float bmi = (float)(-1.0);
+            if (float.TryParse(txtBMI.Text, out bmi))
+            {   // parsing successfull
+                if (bmi < 0 || bmi > 100)
+                {
+                    MessageBox.Show("Patient BMI is out of range (0-100).");
+                    return;
+                }
+                else
+                {   // BMI is OK
+                }
+            }
+            else
+            {
+                MessageBox.Show("Patient BMI is invalid (0-100).");
+            }
+
+
+
+            if (btnSave.Text == "Save")
+            {
+                Patient pat = new Patient(txtName.Text.Trim(), age, (gender==0 ? false : true), bmi);
+                DbPatient.AddPatient(pat);
+                Clear();
+            }
+
+            _parent.Display();
         }
     }
 }
