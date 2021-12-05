@@ -81,7 +81,7 @@ namespace OperationPlanner
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.Parameters.Add("@StudentID", MySqlDbType.VarChar).Value = id;
+            cmd.Parameters.Add("@PatientID", MySqlDbType.VarChar).Value = id;
             
             try
             {

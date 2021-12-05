@@ -90,5 +90,26 @@ namespace OperationPlanner
         {
             DbPatient.DisplayAndSearch("SELECT ID, Name, Age, Gender, BMI FROM patient_table WHERE Name LIKE'%" + txtSearch.Text + "%'", dataGridView1);
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                MessageBox.Show("You ant to edit!");
+                return;
+            }
+            if (e.ColumnIndex == 1)
+            {
+                if ((MessageBox.Show("Are you sure you want to delete this patient record?", "Information", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information)) == DialogResult.Yes)
+                {
+                    DbPatient.DeletePatient(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    Display();
+                }
+                else
+                {
+                    MessageBox.Show("Not deleting.");
+                }
+            }
+        }
     }
 }
