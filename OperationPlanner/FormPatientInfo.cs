@@ -85,5 +85,10 @@ namespace OperationPlanner
         {
             Display();
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            DbPatient.DisplayAndSearch("SELECT ID, Name, Age, Gender, BMI FROM patient_table WHERE Name LIKE'%" + txtSearch.Text + "%'", dataGridView1);
+        }
     }
 }
