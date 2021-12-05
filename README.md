@@ -3,4 +3,4 @@ App for scheduling surgical operations. Robust optimization with Random Machine 
 
 Installing XAMPP'a https://www.youtube.com/watch?v=WSeKPbVZBoo&t=2s
 
-Key tutorial link https://www.youtube.com/watch?v=F0GmS6IWMk4&ab_channel=1BestCsharpblog
+Key tutorial link https://www.youtube.com/watch?v=NrJiEjzyhYc&t=924s&ab_channel=IAmTimCorey
