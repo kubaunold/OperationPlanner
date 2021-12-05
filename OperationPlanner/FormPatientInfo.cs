@@ -14,18 +14,22 @@ namespace OperationPlanner
 {
     public partial class FormPatientInfo : Form
     {
+        FormAddPatient form;    // FormAddPatient should be FormPatient
+
         public void Log(string s)
         {
             richTextBox_logger.Text += DateTime.Now.ToString() + " " + s + "\n";
         }
 
         public FormPatientInfo()
-        {
+        {   // Constructor
             InitializeComponent();
+            form = new FormAddPatient(this);
         }
 
+        
         private void btn_connect_Click(object sender, EventArgs e)
-        {
+        {// from old project
             try
             {
                 Log("Connecting to database using following connString: " + Constants.connString);
@@ -48,10 +52,12 @@ namespace OperationPlanner
             }
         }
 
-        // bind this method to its TextChanged event handler:
-        // richTextBox.TextChanged += richTextBox_TextChanged;
+
         private void richTextBox_logger_TextChanged(object sender, EventArgs e)
-        {
+        {// from old project
+            // bind this method to its TextChanged event handler:
+            // richTextBox.TextChanged += richTextBox_TextChanged;
+
             // set the current caret position to the end
             richTextBox_logger.SelectionStart = richTextBox_logger.Text.Length;
             // scroll it automatically
@@ -77,7 +83,10 @@ namespace OperationPlanner
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            FormAddPatient form = new FormAddPatient(this);
+            //FormAddPatient form = new FormAddPatient(this);
+
+            form.Clear();
+            form.SaveInfo();
             form.ShowDialog();
         }
 
@@ -94,12 +103,20 @@ namespace OperationPlanner
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
-            {
-                MessageBox.Show("You ant to edit!");
+            {   // Edit
+                //MessageBox.Show("You ant to edit!");
+                form.Clear();
+                form.id = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                form.name = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                form.age = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                form.gender = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                form.bmi = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                form.UpdateInfo();
+                form.ShowDialog();
                 return;
             }
             if (e.ColumnIndex == 1)
-            {
+            {   // Delete
                 if ((MessageBox.Show("Are you sure you want to delete this patient record?", "Information", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information)) == DialogResult.Yes)
                 {
                     DbPatient.DeletePatient(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
@@ -107,7 +124,7 @@ namespace OperationPlanner
                 }
                 else
                 {
-                    MessageBox.Show("Not deleting.");
+                    MessageBox.Show("[ERR_667] Not deleting.");
                 }
             }
         }

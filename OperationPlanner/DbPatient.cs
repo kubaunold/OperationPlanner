@@ -54,10 +54,11 @@ namespace OperationPlanner
 
         public static void UpdatePatient(Patient pat, string id)
         {
-            string sql = "UPDATEpatient_table SET Name = @PatientName, Age = @PatientAge, Gender = @PatientGender, BMI = @PatientBMI WHERE ID = @PatientID";
+            string sql = "UPDATE patient_table SET Name = @PatientName, Age = @PatientAge, Gender = @PatientGender, BMI = @PatientBMI WHERE ID = @PatientID";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.CommandType = System.Data.CommandType.Text;
+            cmd.Parameters.Add("@PatientID", MySqlDbType.VarChar).Value = id;
             cmd.Parameters.Add("@PatientName", MySqlDbType.VarChar).Value = pat.Name;
             cmd.Parameters.Add("@PatientAge", MySqlDbType.Int32).Value = pat.Age;
             cmd.Parameters.Add("@PatientGender", MySqlDbType.Int32).Value = pat.Gender;
@@ -65,12 +66,16 @@ namespace OperationPlanner
 
             try
             {
-                cmd.ExecuteNonQuery();
+                int temp = cmd.ExecuteNonQuery();
                 MessageBox.Show("Updated Successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show("Patient not updated. \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch
+            {
+                MessageBox.Show("[ERR_117] Error of another type.");
             }
             conn.Close();
         }

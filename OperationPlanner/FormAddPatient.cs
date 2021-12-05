@@ -13,6 +13,12 @@ namespace OperationPlanner
     public partial class FormAddPatient : Form
     {
         private readonly FormPatientInfo _parent;
+        //public string id;
+        //public string name;
+        //public int age;
+        //public int gender;
+        //public float bmi;
+        public string id, name, age, gender, bmi;
 
         public FormAddPatient(FormPatientInfo parent)
         {
@@ -20,6 +26,21 @@ namespace OperationPlanner
             _parent = parent;
         }
 
+        public void UpdateInfo()
+        {
+            lblFormPatient.Text = "Update Patient";
+            btnSave.Text = "Update";
+            txtName.Text = name;
+            txtAge.Text = age;
+            txtGender.Text = gender;
+            txtBMI.Text = bmi;
+        }
+
+        public void SaveInfo()
+        {
+            lblFormPatient.Text = "Add Patient";
+            btnSave.Text = "Save";
+        }
 
         public void Clear()
         {
@@ -96,6 +117,13 @@ namespace OperationPlanner
                 Patient pat = new Patient(txtName.Text.Trim(), age, (gender==0 ? false : true), bmi);
                 DbPatient.AddPatient(pat);
                 Clear();
+            }
+
+            if (btnSave.Text == "Update")
+            {
+                Patient pat = new Patient(txtName.Text.Trim(), age, (gender == 0 ? false : true), bmi);
+                DbPatient.UpdatePatient(pat, id);
+
             }
 
             _parent.Display();

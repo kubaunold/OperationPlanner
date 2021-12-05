@@ -32,15 +32,15 @@ namespace OperationPlanner
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblFormPatient = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtAge = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtGender = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBMI = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtGender = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtAge = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -66,23 +66,23 @@ namespace OperationPlanner
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblFormPatient);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(587, 211);
             this.panel1.TabIndex = 2;
             // 
-            // label1
+            // lblFormPatient
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(222)))), ((int)(((byte)(233)))));
-            this.label1.Location = new System.Drawing.Point(10, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 37);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Add Patient";
+            this.lblFormPatient.AutoSize = true;
+            this.lblFormPatient.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblFormPatient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(222)))), ((int)(((byte)(233)))));
+            this.lblFormPatient.Location = new System.Drawing.Point(10, 10);
+            this.lblFormPatient.Name = "lblFormPatient";
+            this.lblFormPatient.Size = new System.Drawing.Size(215, 37);
+            this.lblFormPatient.TabIndex = 1;
+            this.lblFormPatient.Text = "Add Patient";
             // 
             // panel2
             // 
@@ -101,41 +101,15 @@ namespace OperationPlanner
             this.panel2.Size = new System.Drawing.Size(490, 352);
             this.panel2.TabIndex = 5;
             // 
-            // label3
+            // btnSave
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(77, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Age:";
-            // 
-            // txtAge
-            // 
-            this.txtAge.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAge.Location = new System.Drawing.Point(80, 131);
-            this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(337, 20);
-            this.txtAge.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(77, 161);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Gender:";
-            // 
-            // txtGender
-            // 
-            this.txtGender.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtGender.Location = new System.Drawing.Point(80, 184);
-            this.txtGender.Name = "txtGender";
-            this.txtGender.Size = new System.Drawing.Size(337, 20);
-            this.txtGender.TabIndex = 2;
+            this.btnSave.Location = new System.Drawing.Point(80, 282);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label5
             // 
@@ -155,15 +129,41 @@ namespace OperationPlanner
             this.txtBMI.Size = new System.Drawing.Size(337, 20);
             this.txtBMI.TabIndex = 3;
             // 
-            // btnSave
+            // label4
             // 
-            this.btnSave.Location = new System.Drawing.Point(80, 282);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(77, 161);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Gender:";
+            // 
+            // txtGender
+            // 
+            this.txtGender.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGender.Location = new System.Drawing.Point(80, 184);
+            this.txtGender.Name = "txtGender";
+            this.txtGender.Size = new System.Drawing.Size(337, 20);
+            this.txtGender.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(77, 108);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Age:";
+            // 
+            // txtAge
+            // 
+            this.txtAge.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtAge.Location = new System.Drawing.Point(80, 131);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(337, 20);
+            this.txtAge.TabIndex = 1;
             // 
             // FormAddPatient
             // 
@@ -188,7 +188,7 @@ namespace OperationPlanner
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblFormPatient;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label5;
