@@ -1,6 +1,9 @@
 # OperationPlanner
 App for scheduling surgical operations. Robust optimization with Random Machine Breakdowns.
 
+## Project documentation in Overleaf
+https://www.overleaf.com/6178914446zhmjdrmdwhkg
+
 ## Useful Links
 Installing XAMPP'a https://www.youtube.com/watch?v=WSeKPbVZBoo&t=2s
 
