@@ -114,7 +114,7 @@ namespace OperationPlanner
             // Wektor do testow
             float[][] vectorsTest = new float[][]
             {
-            new[] {27.7f,22.66f,0f,0f,0f,0f,0f,0f,0f,0f,0f,-0.48f,-0.37f},
+            new[] {58.7f,37.01f,0f,1f,0f,0f,1f,0f,0f,0f,0f,-0.14f,-0.76f},
             };
 
 
