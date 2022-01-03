@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MySql.Data.MySqlClient;
+using XGBoost;
 
 
 namespace OperationPlanner
@@ -15,7 +19,7 @@ namespace OperationPlanner
     public partial class FormPatientInfo : Form
     {
         FormAddPatient form;    // FormAddPatient should be FormPatient
-
+        XGBTrainer tr = new XGBTrainer();
         public void Log(string s)
         {
             richTextBox_logger.Text += DateTime.Now.ToString() + " " + s + "\n";
@@ -127,6 +131,19 @@ namespace OperationPlanner
                     MessageBox.Show("[ERR_667] Not deleting.");
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            tr.Train();
+     
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string napis = tr.Predict();
+            MessageBox.Show(napis);
         }
     }
 }
