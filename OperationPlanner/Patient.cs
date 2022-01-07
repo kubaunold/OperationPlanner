@@ -33,7 +33,6 @@ namespace OperationPlanner
         {
             Name = name;
             Age = age;
-            Gender = gender;
             BMI = bmi;
             Cancer = cancer;
             CVD = cvd;

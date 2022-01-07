@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2021 at 11:54 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Czas generowania: 07 Sty 2022, 10:17
+-- Wersja serwera: 10.4.22-MariaDB
+-- Wersja PHP: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,54 +18,62 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `patient`
+-- Baza danych: `patient`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patient_table`
+-- Struktura tabeli dla tabeli `patient_table`
 --
 
 CREATE TABLE `patient_table` (
   `ID` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL,
-  `Age` int(11) NOT NULL,
-  `Gender` tinyint(1) NOT NULL,
+  `Age` float NOT NULL,
   `BMI` float NOT NULL,
+  `Cancer` int(11) NOT NULL DEFAULT 0,
+  `CVD` int(11) NOT NULL DEFAULT 0,
+  `Dementia` int(11) NOT NULL DEFAULT 0,
+  `Diabetes` int(11) NOT NULL DEFAULT 0,
+  `Digestive` int(11) NOT NULL DEFAULT 0,
+  `Osteoart` int(11) NOT NULL DEFAULT 0,
+  `Psych` int(11) NOT NULL DEFAULT 0,
+  `Pulmonary` int(11) NOT NULL DEFAULT 0,
+  `Charlson` int(11) NOT NULL DEFAULT 0,
+  `Mortality_rsi` float NOT NULL,
+  `Complication_rsi` float NOT NULL,
+  `Surgery_type` varchar(50) NOT NULL,
+  `JUP_priority` int(11) NOT NULL DEFAULT 0,
   `CreateAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `patient_table`
+-- Zrzut danych tabeli `patient_table`
 --
 
-INSERT INTO `patient_table` (`ID`, `Name`, `Age`, `Gender`, `BMI`, `CreateAt`) VALUES
-(3, 'Jakub Unold', 28, 1, 18.5, '2021-11-25 14:17:41'),
-(5, 'Tom Hanks', 58, 1, 29, '2021-12-05 11:22:28'),
-(6, 'Martyna Makur', 26, 0, 90, '2021-12-05 12:37:29'),
-(7, 'Artur Nowak', 23, 0, 65, '2021-12-05 12:43:02'),
-(8, 'Frank Sinatra', 165, 1, 65, '2021-12-05 12:50:20');
+INSERT INTO `patient_table` (`ID`, `Name`, `Age`, `BMI`, `Cancer`, `CVD`, `Dementia`, `Diabetes`, `Digestive`, `Osteoart`, `Psych`, `Pulmonary`, `Charlson`, `Mortality_rsi`, `Complication_rsi`, `Surgery_type`, `JUP_priority`, `CreateAt`) VALUES
+(12, 'Franek Bąk', 132, 34, 0, 0, 1, 1, 0, 0, 1, 1, 5, 2, 3, 'Flu', 0, '2022-01-03 15:33:31');
 
 --
--- Indexes for dumped tables
+-- Indeksy dla zrzutów tabel
 --
 
 --
--- Indexes for table `patient_table`
+-- Indeksy dla tabeli `patient_table`
 --
 ALTER TABLE `patient_table`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT dla zrzuconych tabel
 --
 
 --
--- AUTO_INCREMENT for table `patient_table`
+-- AUTO_INCREMENT dla tabeli `patient_table`
 --
 ALTER TABLE `patient_table`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

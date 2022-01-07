@@ -22,7 +22,7 @@ namespace OperationPlanner
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("MySQL COnnection!\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MySQL Connection!\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
