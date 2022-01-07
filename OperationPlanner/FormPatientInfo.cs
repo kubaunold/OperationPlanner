@@ -78,7 +78,7 @@ namespace OperationPlanner
 
         public void Display()
         {
-            DbPatient.DisplayAndSearch("SELECT ID, Name, Age, Gender, BMI FROM patient_table", dataGridView1);
+            DbPatient.DisplayAndSearch("SELECT ID, Name, Age, BMI, Cancer, CVD, Dementia, Diabetes, Digestive, Osteoart, Psych, Pulmonary, Charlson, Mortality_rsi, Complication_rsi, Surgery_type, JUP_priority_predicted, JUP_priority_ideal FROM patient_table", dataGridView1);
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -97,7 +97,7 @@ namespace OperationPlanner
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            DbPatient.DisplayAndSearch("SELECT ID, Name, Age, Gender, BMI FROM patient_table WHERE Name LIKE'%" + txtSearch.Text + "%'", dataGridView1);
+            DbPatient.DisplayAndSearch("SELECT ID, Name, Age, BMI, Cancer, CVD, Dementia, Diabetes, Digestive, Osteoart, Psych, Pulmonary, Charlson, Mortality_rsi, Complication_rsi, Surgery_type, JUP_priority_predicted, JUP_priority_ideal FROM patient_table WHERE Name LIKE'%" + txtSearch.Text + "%'", dataGridView1);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -127,6 +127,23 @@ namespace OperationPlanner
                     MessageBox.Show("[ERR_667] Not deleting.");
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            tr.Train();
+     
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

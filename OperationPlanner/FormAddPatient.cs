@@ -55,8 +55,8 @@ namespace OperationPlanner
                 return;
             }
 
-            int age = -1;
-            if (int.TryParse(txtAge.Text, out age))
+            float age = -1;
+            if (float.TryParse(txtAge.Text, out age))
             {   // parsing successfull
                 if (age < 0 || age > 200)
                 {
@@ -113,15 +113,19 @@ namespace OperationPlanner
 
 
             if (btnSave.Text == "Save")
-            {
-                Patient pat = new Patient(txtName.Text.Trim(), age, (gender==0 ? false : true), bmi);
+            {   XGBTrainer xg = new XGBTrainer();
+                int jup = xg.Predict(age, bmi, cancer,cvd,dementia,diabetes,digestive,osteoart,psych,pulmonary,charlson,mortality_rsi,complication_rsi);
+                Patient pat = new Patient(txtName.Text.Trim(), age, bmi, cancer, cvd, dementia, diabetes, digestive, osteoart, psych, pulmonary, charlson, mortality_rsi, complication_rsi, txtSurgery_type.Text.Trim(), jup);
+
                 DbPatient.AddPatient(pat);
                 Clear();
             }
 
             if (btnSave.Text == "Update")
             {
-                Patient pat = new Patient(txtName.Text.Trim(), age, (gender == 0 ? false : true), bmi);
+                XGBTrainer xg = new XGBTrainer();
+                int jup = xg.Predict(age, bmi, cancer, cvd, dementia, diabetes, digestive, osteoart, psych, pulmonary, charlson, mortality_rsi, complication_rsi);
+                Patient pat = new Patient(txtName.Text.Trim(), age, bmi, cancer, cvd, dementia, diabetes, digestive, osteoart, psych, pulmonary, charlson, mortality_rsi, complication_rsi, txtSurgery_type.Text.Trim(), jup);
                 DbPatient.UpdatePatient(pat, id);
 
             }

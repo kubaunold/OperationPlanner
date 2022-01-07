@@ -44,6 +44,20 @@ namespace OperationPlanner
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cancer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CVD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dementia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Diabetes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Digestive = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Osteoart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Psych = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pulmonary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Charlson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mortality_rsi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Complication_rsi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Surgery_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JUP_predicted = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JUP_ideal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -148,6 +162,20 @@ namespace OperationPlanner
             this.Column3,
             this.Column4,
             this.Column5,
+            this.Cancer,
+            this.CVD,
+            this.Dementia,
+            this.Diabetes,
+            this.Digestive,
+            this.Osteoart,
+            this.Psych,
+            this.Pulmonary,
+            this.Charlson,
+            this.Mortality_rsi,
+            this.Complication_rsi,
+            this.Surgery_type,
+            this.JUP_predicted,
+            this.JUP_ideal,
             this.Column6,
             this.Column7});
             this.dataGridView1.GridColor = System.Drawing.Color.White;
@@ -196,6 +224,104 @@ namespace OperationPlanner
             this.Column5.HeaderText = "BMI";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            // 
+            // Cancer
+            // 
+            this.Cancer.DataPropertyName = "Cancer";
+            this.Cancer.HeaderText = "Cancer";
+            this.Cancer.Name = "Cancer";
+            this.Cancer.ReadOnly = true;
+            // 
+            // CVD
+            // 
+            this.CVD.DataPropertyName = "CVD";
+            this.CVD.HeaderText = "CVD";
+            this.CVD.Name = "CVD";
+            this.CVD.ReadOnly = true;
+            // 
+            // Dementia
+            // 
+            this.Dementia.DataPropertyName = "Dementia";
+            this.Dementia.HeaderText = "Dementia";
+            this.Dementia.Name = "Dementia";
+            this.Dementia.ReadOnly = true;
+            // 
+            // Diabetes
+            // 
+            this.Diabetes.DataPropertyName = "Diabetes";
+            this.Diabetes.HeaderText = "Diabetes";
+            this.Diabetes.Name = "Diabetes";
+            this.Diabetes.ReadOnly = true;
+            // 
+            // Digestive
+            // 
+            this.Digestive.DataPropertyName = "Digestive";
+            this.Digestive.HeaderText = "Digestive";
+            this.Digestive.Name = "Digestive";
+            this.Digestive.ReadOnly = true;
+            // 
+            // Osteoart
+            // 
+            this.Osteoart.DataPropertyName = "Osteoart";
+            this.Osteoart.HeaderText = "Osteoart";
+            this.Osteoart.Name = "Osteoart";
+            this.Osteoart.ReadOnly = true;
+            // 
+            // Psych
+            // 
+            this.Psych.DataPropertyName = "Psych";
+            this.Psych.HeaderText = "Psych";
+            this.Psych.Name = "Psych";
+            this.Psych.ReadOnly = true;
+            // 
+            // Pulmonary
+            // 
+            this.Pulmonary.DataPropertyName = "Pulmonary";
+            this.Pulmonary.HeaderText = "Pulmonary";
+            this.Pulmonary.Name = "Pulmonary";
+            this.Pulmonary.ReadOnly = true;
+            // 
+            // Charlson
+            // 
+            this.Charlson.DataPropertyName = "Charlson";
+            this.Charlson.HeaderText = "Charlson";
+            this.Charlson.Name = "Charlson";
+            this.Charlson.ReadOnly = true;
+            // 
+            // Mortality_rsi
+            // 
+            this.Mortality_rsi.DataPropertyName = "Mortality_rsi";
+            this.Mortality_rsi.HeaderText = "Mortality_rsi";
+            this.Mortality_rsi.Name = "Mortality_rsi";
+            this.Mortality_rsi.ReadOnly = true;
+            // 
+            // Complication_rsi
+            // 
+            this.Complication_rsi.DataPropertyName = "Complication_rsi";
+            this.Complication_rsi.HeaderText = "Complication_rsi";
+            this.Complication_rsi.Name = "Complication_rsi";
+            this.Complication_rsi.ReadOnly = true;
+            // 
+            // Surgery_type
+            // 
+            this.Surgery_type.DataPropertyName = "Surgery_type";
+            this.Surgery_type.HeaderText = "Surgery_type";
+            this.Surgery_type.Name = "Surgery_type";
+            this.Surgery_type.ReadOnly = true;
+            // 
+            // JUP_predicted
+            // 
+            this.JUP_predicted.DataPropertyName = "JUP_predicted";
+            this.JUP_predicted.HeaderText = "JUP_predicted";
+            this.JUP_predicted.Name = "JUP_predicted";
+            this.JUP_predicted.ReadOnly = true;
+            // 
+            // JUP_ideal
+            // 
+            this.JUP_ideal.DataPropertyName = "JUP_ideal";
+            this.JUP_ideal.HeaderText = "JUP_ideal";
+            this.JUP_ideal.Name = "JUP_ideal";
+            this.JUP_ideal.ReadOnly = true;
             // 
             // Column6
             // 
@@ -310,6 +436,20 @@ namespace OperationPlanner
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cancer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CVD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dementia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Diabetes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Digestive;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Osteoart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Psych;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pulmonary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Charlson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mortality_rsi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Complication_rsi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Surgery_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn JUP_predicted;
+        private System.Windows.Forms.DataGridViewTextBoxColumn JUP_ideal;
         private System.Windows.Forms.DataGridViewButtonColumn Column6;
         private System.Windows.Forms.DataGridViewButtonColumn Column7;
     }

@@ -31,14 +31,27 @@ namespace OperationPlanner
 
         public static void AddPatient(Patient pat)
         {
-            string sql = "INSERT INTO patient_table VALUES (NULL, @PatientName, @PatientAge, @PatientGender, @PatientBMI, NULL)";
+            string sql = "INSERT INTO patient_table VALUES (NULL, @PatientName, @PatientAge, @PatientBMI, @PatientCancer, @PatientCVD, @PatientDementia, @PatientDiabetes, @PatientDigestive, @PatientOsteoart, @PatientPsych, @PatientPulmonary, @PatientCharlson, @PatientMortality_rsi, @PatientComplication_rsi, @PatientSurgery_type, @PatientJUP_priority_predicted, @PatientJUP_priority_ideal, NULL)";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.Parameters.Add("@PatientName", MySqlDbType.VarChar).Value = pat.Name;
-            cmd.Parameters.Add("@PatientAge", MySqlDbType.Int32).Value = pat.Age;
-            cmd.Parameters.Add("@PatientGender", MySqlDbType.Int32).Value = pat.Gender;
+            cmd.Parameters.Add("@PatientAge", MySqlDbType.Float).Value = pat.Age;
             cmd.Parameters.Add("@PatientBMI", MySqlDbType.Float).Value = pat.BMI;
+            cmd.Parameters.Add("@PatientCancer", MySqlDbType.Int32).Value = pat.Cancer;
+            cmd.Parameters.Add("@PatientCVD", MySqlDbType.Int32).Value = pat.CVD;
+            cmd.Parameters.Add("@PatientDementia", MySqlDbType.Int32).Value = pat.Dementia;
+            cmd.Parameters.Add("@PatientDiabetes", MySqlDbType.Int32).Value = pat.Diabetes;
+            cmd.Parameters.Add("@PatientDigestive", MySqlDbType.Int32).Value = pat.Digestive;
+            cmd.Parameters.Add("@PatientOsteoart", MySqlDbType.Int32).Value = pat.Osteoart;
+            cmd.Parameters.Add("@PatientPsych", MySqlDbType.Int32).Value = pat.Psych;
+            cmd.Parameters.Add("@PatientPulmonary", MySqlDbType.Int32).Value = pat.Pulmonary;
+            cmd.Parameters.Add("@PatientCharlson", MySqlDbType.Int32).Value = pat.Charlson;
+            cmd.Parameters.Add("@PatientMortality_rsi", MySqlDbType.Float).Value = pat.Mortality_rsi;
+            cmd.Parameters.Add("@PatientComplication_rsi", MySqlDbType.Float).Value = pat.Complication_rsi;
+            cmd.Parameters.Add("@PatientSurgery_type", MySqlDbType.VarChar).Value = pat.Surgery_type;
+            cmd.Parameters.Add("@PatientJUP_priority_predicted", MySqlDbType.Int32).Value = pat.JUP_priority_predicted;
+            cmd.Parameters.Add("@PatientJUP_priority_ideal", MySqlDbType.Int32).Value = pat.JUP_priority_ideal;
 
             try
             {
@@ -54,16 +67,28 @@ namespace OperationPlanner
 
         public static void UpdatePatient(Patient pat, string id)
         {
-            string sql = "UPDATE patient_table SET Name = @PatientName, Age = @PatientAge, Gender = @PatientGender, BMI = @PatientBMI WHERE ID = @PatientID";
+            string sql = "UPDATE patient_table SET Name = @PatientName, Age = @PatientAge, BMI = @PatientBMI, Cancer = @PatientCancer, CVD = @PatientCVD, Dementia = @PatientDementia, Diabetes = @PatientDiabetes, Digestive = @PatientDigestive, Osteoart = @PatientOsteoart, Psych = @PatientPsych, Pulmonary = @PatientPulmonary, Charlson = @PatientCharlson, Mortality_rsi = @PatientMortality_rsi, Complication_rsi = @PatientComplication_rsi, Surgery_type = @PatientSurgery_type, JUP_priority_predicted = @PatientJUP_priority_predicted, JUP_priority_ideal = @PatientJUP_priority_ideal WHERE ID = @PatientID";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.Parameters.Add("@PatientID", MySqlDbType.VarChar).Value = id;
             cmd.Parameters.Add("@PatientName", MySqlDbType.VarChar).Value = pat.Name;
-            cmd.Parameters.Add("@PatientAge", MySqlDbType.Int32).Value = pat.Age;
-            cmd.Parameters.Add("@PatientGender", MySqlDbType.Int32).Value = pat.Gender;
+            cmd.Parameters.Add("@PatientAge", MySqlDbType.Float).Value = pat.Age;
             cmd.Parameters.Add("@PatientBMI", MySqlDbType.Float).Value = pat.BMI;
-
+            cmd.Parameters.Add("@PatientCancer", MySqlDbType.Int32).Value = pat.Cancer;
+            cmd.Parameters.Add("@PatientCVD", MySqlDbType.Int32).Value = pat.CVD;
+            cmd.Parameters.Add("@PatientDementia", MySqlDbType.Int32).Value = pat.Dementia;
+            cmd.Parameters.Add("@PatientDiabetes", MySqlDbType.Int32).Value = pat.Diabetes;
+            cmd.Parameters.Add("@PatientDigestive", MySqlDbType.Int32).Value = pat.Digestive;
+            cmd.Parameters.Add("@PatientOsteoart", MySqlDbType.Int32).Value = pat.Osteoart;
+            cmd.Parameters.Add("@PatientPsych", MySqlDbType.Int32).Value = pat.Psych;
+            cmd.Parameters.Add("@PatientPulmonary", MySqlDbType.Int32).Value = pat.Pulmonary;
+            cmd.Parameters.Add("@PatientCharlson", MySqlDbType.Int32).Value = pat.Charlson;
+            cmd.Parameters.Add("@PatientMortality_rsi", MySqlDbType.Float).Value = pat.Mortality_rsi;
+            cmd.Parameters.Add("@PatientComplication_rsi", MySqlDbType.Float).Value = pat.Complication_rsi;
+            cmd.Parameters.Add("@PatientSurgery_type", MySqlDbType.VarChar).Value = pat.Surgery_type;
+            cmd.Parameters.Add("@PatientJUP_priority_predicted", MySqlDbType.Int32).Value = pat.JUP_priority_predicted;
+            cmd.Parameters.Add("@PatientJUP_priority_ideal", MySqlDbType.Int32).Value = pat.JUP_priority_ideal;
             try
             {
                 int temp = cmd.ExecuteNonQuery();
