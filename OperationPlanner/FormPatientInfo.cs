@@ -20,64 +20,12 @@ namespace OperationPlanner
     {
         FormAddPatient form;    // FormAddPatient should be FormPatient
         XGBTrainer tr = new XGBTrainer();
-        public void Log(string s)
-        {
-            richTextBox_logger.Text += DateTime.Now.ToString() + " " + s + "\n";
-        }
+
 
         public FormPatientInfo()
         {   // Constructor
             InitializeComponent();
             form = new FormAddPatient(this);
-        }
-
-        
-        private void btn_connect_Click(object sender, EventArgs e)
-        {// from old project
-            try
-            {
-                Log("Connecting to database using following connString: " + Constants.connString);
-
-                MySqlConnection conn = new MySqlConnection(Constants.connString);
-                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM test_db.users", conn);
-
-                conn.Open();
-                DataSet ds = new DataSet();
-                adapter.Fill(ds, "users");
-                dataGridView_database.DataSource = ds.Tables["users"];
-                conn.Close();
-
-
-                MessageBox.Show("Connection successful!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-
-        private void richTextBox_logger_TextChanged(object sender, EventArgs e)
-        {// from old project
-            // bind this method to its TextChanged event handler:
-            // richTextBox.TextChanged += richTextBox_TextChanged;
-
-            // set the current caret position to the end
-            richTextBox_logger.SelectionStart = richTextBox_logger.Text.Length;
-            // scroll it automatically
-            richTextBox_logger.ScrollToCaret();
-        }
-
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            Log("Welcome to Hospital Operation Planner!");
-        }
-
-        private void label_logger_Click(object sender, EventArgs e)
-        {
-
         }
 
         public void Display()
@@ -151,16 +99,5 @@ namespace OperationPlanner
      
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
- 
     }
 }

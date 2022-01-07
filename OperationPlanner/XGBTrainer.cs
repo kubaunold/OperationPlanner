@@ -34,7 +34,6 @@ namespace OperationPlanner
             // Rozpoczecie czytania z pliku
             using (var reader = new StreamReader(@"C:\Users\Michal\source\repos\XGBoost_first\excel_dataset.csv"))
             {
-                int ff = 0;
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
