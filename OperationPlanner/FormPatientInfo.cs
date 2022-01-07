@@ -153,8 +153,7 @@ namespace OperationPlanner
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string napis = tr.Predict();
-            MessageBox.Show(napis);
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -162,21 +161,6 @@ namespace OperationPlanner
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            tr.Train();
-     
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+ 
     }
 }
