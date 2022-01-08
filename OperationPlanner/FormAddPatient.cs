@@ -307,7 +307,7 @@ namespace OperationPlanner
                 XGBTrainer xg = new XGBTrainer();
                 int jup = xg.Predict(age, bmi, cancer, cvd, dementia, diabetes, digestive, osteoart, psych, pulmonary, charlson, mortality_rsi, complication_rsi);
                 Patient pat = new Patient(txtName.Text.Trim(), age, bmi, cancer, cvd, dementia, diabetes, digestive, osteoart, psych, pulmonary, charlson, mortality_rsi, complication_rsi, txtSurgery_type.Text.Trim(), jup);
-                DbPatient.UpdatePatient(pat, id);
+                DbPatient.UpdatePatient(pat, id, 1);
                 Close();
             }
 

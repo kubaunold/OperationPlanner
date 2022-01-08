@@ -94,10 +94,29 @@ namespace OperationPlanner
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+           
             tr.Train();
      
         }
 
+        private void predictButton_Click(object sender, EventArgs e)
+        {
+            string napis = "";
+            int new_jup_priority;
+            Patient pacjent;
+            List<string> indeksy;
+            indeksy = DbPatient.TakeIDs();
+            foreach (string ind in indeksy)
+            {
+                pacjent = DbPatient.TakeRow(ind);
+
+                new_jup_priority = tr.Predict(pacjent.Age, pacjent.BMI, pacjent.Cancer, pacjent.CVD, pacjent.Dementia, pacjent.Diabetes, pacjent.Digestive, pacjent.Osteoart, pacjent.Psych, pacjent.Pulmonary, pacjent.Charlson, pacjent.Mortality_rsi, pacjent.Complication_rsi);
+                pacjent.JUP_priority_predicted = new_jup_priority;          
+                DbPatient.UpdatePatient(pacjent, ind, 0);
+                
+            }
+            Display();
+            MessageBox.Show("All priorities updated!");
+        }
     }
 }
