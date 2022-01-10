@@ -94,8 +94,9 @@ namespace OperationPlanner
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
             tr.Train();
+            MessageBox.Show("Klasyfikator wytrenowany!");
      
         }
 
@@ -118,5 +119,7 @@ namespace OperationPlanner
             Display();
             MessageBox.Show("All priorities updated!");
         }
+
+
     }
 }
