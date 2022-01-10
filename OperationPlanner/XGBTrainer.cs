@@ -32,7 +32,7 @@ namespace OperationPlanner
             float[] label_array;
 
             // Rozpoczecie czytania z pliku
-            using (var reader = new StreamReader(@"C:\Users\Michal\source\repos\XGBoost_first\excel_dataset.csv"))
+            using (var reader = new StreamReader(@"C:\Users\Michal\source\repos\OperationPlanner\training_1k.csv"))
             {
                 while (!reader.EndOfStream)
                 {
@@ -40,20 +40,20 @@ namespace OperationPlanner
                     var values = line.Split(',');
                     float[] wiersz = new float[iloscParametrow];
                     wiersz[0] = float.Parse(values[1], CultureInfo.InvariantCulture.NumberFormat); // Age
-                    wiersz[1] = float.Parse(values[5], CultureInfo.InvariantCulture.NumberFormat); // BMI
-                    wiersz[2] = float.Parse(values[6], CultureInfo.InvariantCulture.NumberFormat); // Diseases
-                    wiersz[3] = float.Parse(values[7], CultureInfo.InvariantCulture.NumberFormat);
-                    wiersz[4] = float.Parse(values[8], CultureInfo.InvariantCulture.NumberFormat);
-                    wiersz[5] = float.Parse(values[9], CultureInfo.InvariantCulture.NumberFormat);
-                    wiersz[6] = float.Parse(values[10], CultureInfo.InvariantCulture.NumberFormat);
-                    wiersz[7] = float.Parse(values[11], CultureInfo.InvariantCulture.NumberFormat);
-                    wiersz[8] = float.Parse(values[12], CultureInfo.InvariantCulture.NumberFormat);
-                    wiersz[9] = float.Parse(values[13], CultureInfo.InvariantCulture.NumberFormat);
-                    wiersz[10] = float.Parse(values[14], CultureInfo.InvariantCulture.NumberFormat); 
-                    wiersz[11] = float.Parse(values[15], CultureInfo.InvariantCulture.NumberFormat); //RSI 1
-                    wiersz[12] = float.Parse(values[16], CultureInfo.InvariantCulture.NumberFormat); // RSI 2
+                    wiersz[1] = float.Parse(values[2], CultureInfo.InvariantCulture.NumberFormat); // BMI
+                    wiersz[2] = float.Parse(values[3], CultureInfo.InvariantCulture.NumberFormat); // Diseases
+                    wiersz[3] = float.Parse(values[4], CultureInfo.InvariantCulture.NumberFormat);
+                    wiersz[4] = float.Parse(values[5], CultureInfo.InvariantCulture.NumberFormat);
+                    wiersz[5] = float.Parse(values[6], CultureInfo.InvariantCulture.NumberFormat);
+                    wiersz[6] = float.Parse(values[7], CultureInfo.InvariantCulture.NumberFormat);
+                    wiersz[7] = float.Parse(values[8], CultureInfo.InvariantCulture.NumberFormat);
+                    wiersz[8] = float.Parse(values[9], CultureInfo.InvariantCulture.NumberFormat);
+                    wiersz[9] = float.Parse(values[10], CultureInfo.InvariantCulture.NumberFormat);
+                    wiersz[10] = float.Parse(values[11], CultureInfo.InvariantCulture.NumberFormat); 
+                    wiersz[11] = float.Parse(values[12], CultureInfo.InvariantCulture.NumberFormat); //RSI 1
+                    wiersz[12] = float.Parse(values[13], CultureInfo.InvariantCulture.NumberFormat); // RSI 2
               
-                    float Label = float.Parse(values[27], CultureInfo.InvariantCulture.NumberFormat); // my rsi formula rounded
+                    float Label = float.Parse(values[16], CultureInfo.InvariantCulture.NumberFormat); // my rsi formula rounded
 
                   
                     labels.Add(Label);
