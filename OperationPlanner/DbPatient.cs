@@ -176,6 +176,7 @@ namespace OperationPlanner
                     pat.Charlson = reader.GetInt32(12);
                     pat.Mortality_rsi = reader.GetFloat(13);
                     pat.Complication_rsi = reader.GetFloat(14);
+                    pat.Surgery_type = reader.GetString(15);
                     pat.JUP_priority_predicted = reader.GetInt32(16);
                     pat.JUP_priority_ideal = reader.GetInt32(17);
 
