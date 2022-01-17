@@ -19,3 +19,9 @@ Key tutorial link https://www.youtube.com/watch?v=NrJiEjzyhYc&t=924s&ab_channel=
 ## Adding importing .csv file to sql db
 File must look like `patients_csv_v3_only100.csv`
 When importing, ommit 0th row (Skip this number of queries (for SQL) starting from the first one: 1) and remove `"` delimiters
+
+## GNATOWSKI -> ToDo:
+- Zrobić większy zbiór testowy, tak ok. 10% zbioru treningowego;
+- Próbkować różne rekordy do zbioru, a potem wyciągnąć średnią. Czyli nie brać do testów cały czas tych samych 1000 rekordów ale inne za każdym razem i zrobić 10 prób;
+- Spróbować zobaczyć co stanie się jak będzie inna liczba klas wyjściowych, czyli nie 40, a np. 10;
+- Jak robimy badania dla zbioru treningowego mniejszego niż 30000 to też próbkować i wyciągnąć średnią
